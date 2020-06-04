@@ -1,0 +1,29 @@
+DB_FILE = "/path/to/auriol-db.sl3"
+
+TABLES_AND_COLUMNS = {
+    "temperature": {
+        "columns": ("created", "amount"),
+        "metrics": [(1, "pluvio.temp_ext")],
+        "last_timestamp": 0
+    },
+    "humidity": {
+        "columns": ("created", "amount"),
+        "metrics": [(1, "pluvio.humidity_ext")],
+        "last_timestamp": 0
+    },
+    "pressure": {
+        "columns": ("created", "pressure", "temperature"),
+        "metrics": [(1, "pluvio.pressure"), (2, "pluvio.temp_int")],
+        "last_timestamp": 0
+    },
+}
+
+DEBUG = False
+
+INFLUX_PARAMS = {
+    "address": "localhost",
+    "port": 8086,
+    "username": "root",
+    "password": "root",
+    "database": "weather"
+}
